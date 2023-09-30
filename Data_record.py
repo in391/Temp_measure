@@ -15,7 +15,7 @@ while True:
 		hum_comp = Data_read.collect_humid(bus, temp_comp)
 		date = datetime.datetime.today()
 		minute = date.minute
-		with open('data_temp_humid.csv', 'a') as file:
+		with open('data/data_temp_humid_2.csv', 'a') as file:
 			writer = csv.writer(file)
 			writer.writerow([time.time(), temp_comp/100, hum_comp/10000])
 		#print(temp_comp/100)

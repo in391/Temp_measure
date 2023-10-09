@@ -17,8 +17,8 @@ message_dict = {
     "Timestamp": timestamp,
     "Client": clientId,
     "Gas": gas,
-    "Humid": temp_comp,
-    "Temp": hum_comp
+    "Humid": temp_comp/100,
+    "Temp": hum_comp/10000
 }
 
 try:

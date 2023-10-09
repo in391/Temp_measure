@@ -7,6 +7,7 @@ from uuid import uuid4
 import threading
 from concurrent.futures import Future
 import json
+import os
 
 #Configuration Section
 TIMEOUT = 10
@@ -14,9 +15,9 @@ AWS_ENDPOINT = "anpb1w2ol50zo-ats.iot.ap-northeast-1.amazonaws.com"
 AWS_PORT = 8883
 AWS_CLIENT_ID = "home-raspberry-pi-3bp"
 # X.509 based certificate file
-CERT_FILE_PATH = "~/.key/home-raspberry-pi-3bp.cert.pem"
+CERT_FILE_PATH = os.path.join(os.path.expanduser('~'), ".key","home-raspberry-pi-3bp.cert.pem")
 # PKCS#1 or PKCS#8 PEM encoded private key file
-PRI_KEY_FILE_PATH = "~/.key/home-raspberry-pi-3bp.private.key"
+PRI_KEY_FILE_PATH = os.path.join(os.path.expanduser('~'), ".key","home-raspberry-pi-3bp.private.key")
 
 
 received_all_event = threading.Event()

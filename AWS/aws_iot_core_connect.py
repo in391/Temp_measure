@@ -14,9 +14,9 @@ AWS_ENDPOINT = "anpb1w2ol50zo-ats.iot.ap-northeast-1.amazonaws.com"
 AWS_PORT = 8883
 AWS_CLIENT_ID = "home-raspberry-pi-3bp"
 # X.509 based certificate file
-CERT_FILE_PATH = "~/.key/home-surface.cert.pem"
+CERT_FILE_PATH = "~/.key/home-raspberry-pi-3bp.cert.pem"
 # PKCS#1 or PKCS#8 PEM encoded private key file
-PRI_KEY_FILE_PATH = "~/.key/home-surface.private.key"
+PRI_KEY_FILE_PATH = "~/.key/home-raspberry-pi-3bp.private.key"
 
 
 received_all_event = threading.Event()

@@ -1,5 +1,7 @@
 import smbus
 import time
+import main_read
+
 bus = smbus.SMBus(1)
 address = 0x77
 reg_add = 0x74
@@ -36,15 +38,15 @@ par_t2 += bus.read_byte_data(address, add_part_t2_lsb)
 
 par_t3 = bus.read_byte_data(address, add_part_t3)
 
-print(adc, par_t1, par_t2, par_t3)
-print(hex(adc), hex(par_t1), hex(par_t2), hex(par_t3))
+#print(adc, par_t1, par_t2, par_t3)
+#print(hex(adc), hex(par_t1), hex(par_t2), hex(par_t3))
 
 var1 = ((float(adc)/16384.0) - (float(par_t1) / 1024.0)) * float(par_t2)
 var2 = (((float(adc) / 131072.0) - (float(par_t1) / 8192.0))*((float(adc)/131072.0) - (float(par_t1)/8192.0)))*(float(par_t3) * 16.0)
 t_fine = var1 + var2
 temp_comp = t_fine / 5120.0
 
-print(temp_comp)
+#print(temp_comp)
 
 var1 = (int(adc) >> 3) - (int(par_t1) << 1);
 var2 = (var1*int(par_t2)) >> 11;
@@ -53,3 +55,5 @@ t_fine = var2 + var3;
 temp_comp = ((t_fine * 5) + 128) >> 8;
 
 print(temp_comp)
+hum_comp = main_read.collect_humid(bus, temp_comp)
+print(hum_comp)

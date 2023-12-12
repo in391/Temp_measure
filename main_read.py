@@ -79,10 +79,11 @@ def collect_humid(bus, temp_comp):
 	par_h7 = bus.read_byte_data(address, hum_par_h7)
 	
 	#Humid Calculation
+	temp_comp = int(temp_comp)
 	var1 = int(hum_adc) - int(int(par_h1) << 4) - (int(temp_comp * int(par_h3) / 100) >> 1)
-	var2 = int(int(par_h2) * ((temp_comp * int(par_h4)) / 100 + (int(temp_comp * (temp_comp * int(par_h5)) / 100) >> 6) / 100 + (1 << 14))) >> 10
+	var2 = int(par_h2) * (((temp_comp * int(par_h4)) / 100) + (((temp_comp * ((temp_comp * int(par_h5)) / 100)) >> 6) / 100 + (1 << 14))) >> 10
 	var3 = var1 * var2
-	var4 = int((int(par_h6) << 7) + (temp_comp * int(par_h7) / 100)) >> 4
+	var4 = ((int(par_h6) << 7) + (temp_comp * int(par_h7) / 100)) >> 4
 	var5 = ((var3 >> 14) * (var3 >> 14)) >> 10
 	var6 = (var4 * var5) >> 1
 	hum_comp = (var3 + var6) >> 12

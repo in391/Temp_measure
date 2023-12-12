@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Indoor Air Monitor</title>
+        <link rel="stylesheet" href="./style/style.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <meta name="description" content="Indoor temperature, humidity, and Airquality on chart">
+    </head>
+    <body>
+        <div id="website">
+          <div class="theme-container">
+            <header>
+              <div class="header-wrap not-selectable">
+                <div class="title title-item">
+                  Indoor Air Monitor
+                </div>
+                <div class="title indicator-group">
+                  <div class="title indicator-item">
+                    <span class="indicator-title">Air Quality</span>
+                    <span class="indicator-circle" id="indicator-airquality"></span>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class="type-wrap">
+              <ul id="type-list">
+                <li id="type-select-all" class="button clicked">ALL</li>
+                <li id="type-select-tem" class="button">Temperature</li>
+                <li id="type-select-hum" class="button">Humidity</li>
+                <li id="type-select-pre" class="button">Pressure</li>
+                <li id="type-select-qua" class="button">Air Quality</li>
+                <li id="type-select-co2" class="button">eCO2</li>
+              </ul>
+              <div id="update-wrap">
+                <div id="update-select-upd" class="button">Update</div>
+              </div>
+            </div>
+            <div class="chart-area">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="./script/data.js"></script>
+</html>

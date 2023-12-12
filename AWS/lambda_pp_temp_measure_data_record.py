@@ -4,7 +4,7 @@ import traceback
 from decimal import Decimal
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('pp-temp-measure-data')
+table = dynamodb.Table('pp-home-aws-iot-air-data')
 
 def lambda_handler(event, context):
     try:
